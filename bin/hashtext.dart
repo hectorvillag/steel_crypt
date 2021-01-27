@@ -2,22 +2,20 @@
 //License, v. 2.0. If a copy of the MPL was not distributed with this
 //file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-// © 2021 Aditya Kishore
+// © 2019 Aditya Kishore
+
+import 'package:steel_crypt/steel_crypt.dart';
 
 import 'package:args/args.dart';
-import 'package:steel_crypt/steel_crypt.dart';
 
 void main(List<String> args) {
   final argParser = ArgParser();
 
   argParser.addOption('plain',
-      abbr: 'p', help: 'Input the plaintext to be hashed here...');
-
+      abbr: 'p', defaultsTo: '', help: 'Input the plaintext to be hashed here...');
+  
   argParser.addFlag('help',
-      abbr: 'h',
-      defaultsTo: false,
-      help:
-          'Use Blake2b hashing to hash your string. Use -p to specify what string you want.');
+      abbr: 'h', defaultsTo: false, help: 'Show this help message');
 
   final results = argParser.parse(args);
 
@@ -29,5 +27,5 @@ void main(List<String> args) {
     return print(argParser.usage);
   }
 
-  print(HashCrypt(algo: HashAlgo.Blake2b).hash(inp: plain));
+  print(HashCrypt().hash(plain));
 }

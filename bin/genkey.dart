@@ -2,18 +2,17 @@
 //License, v. 2.0. If a copy of the MPL was not distributed with this
 //file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-// © 2021 Aditya Kishore
+// © 2019 Aditya Kishore
+
+import 'package:steel_crypt/steel_crypt.dart';
 
 import 'package:args/args.dart';
-import 'package:steel_crypt/steel_crypt.dart';
 
 void main(List<String> args) {
   final argParser = ArgParser();
 
   argParser.addOption('length',
-      abbr: 'l',
-      defaultsTo: '32',
-      help: 'Input the encrypted string to be decrypted here...');
+      abbr: 'l', defaultsTo: '32', help: 'Input the encrypted string to be decrypted here...');
 
   argParser.addFlag('help',
       abbr: 'h', defaultsTo: false, help: 'Show this help message');
@@ -28,5 +27,5 @@ void main(List<String> args) {
     return print(argParser.usage);
   }
 
-  print(CryptKey().genFortuna(len: length));
+  print(CryptKey().genFortuna(length));
 }

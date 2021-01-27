@@ -2,22 +2,24 @@
 //License, v. 2.0. If a copy of the MPL was not distributed with this
 //file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-// © 2021 Aditya Kishore
+// © 2019 Aditya Kishore
+
+import 'package:steel_crypt/steel_crypt.dart';
+
 
 import 'package:args/args.dart';
-import 'package:steel_crypt/steel_crypt.dart';
 
 void main(List<String> args) {
   final argParser = ArgParser();
 
   argParser.addOption('text',
-      abbr: 't', help: 'Input the word to be encrypted here...');
+      abbr: 't', defaultsTo: '', help: 'Input the word to be encrypted here...');
 
   argParser.addOption('key',
-      abbr: 'k', help: 'Input the key to encrypt the word here...');
+      abbr: 'k', defaultsTo: '', help: 'Input the key to encrypt the word here...');
 
   argParser.addOption('iv',
-      abbr: 'i', help: 'Input the IV to encrypt the word here...');
+      abbr: 'i', defaultsTo: '', help: 'Input the IV to encrypt the word here...');
 
   argParser.addFlag('help',
       abbr: 'h', defaultsTo: false, help: 'Show this help message');
@@ -34,7 +36,5 @@ void main(List<String> args) {
     return print(argParser.usage);
   }
 
-  print(AesCrypt(key: key, padding: PaddingAES.pkcs7)
-      .gcm
-      .encrypt(inp: input, iv: iv));
+  print(AesCrypt(key, 'cbc').encrypt(input, iv));
 }

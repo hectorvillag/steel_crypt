@@ -1,10 +1,11 @@
 name: steel_crypt
-description: A comprehensive library of high-level, cryptographic APIs. This library supports hashing, password hashing,
-  two-way encryption, MAC authentication, and key/IV generation.
-version: 2.3.1
+description: A comprehensive library of high-level, cryptographic API's. This library supports hashing, password hashing,
+  symmetric and asymmetric two-way encryption, and key/IV generation.
+version: 1.1.0
 homepage: https://github.com/AKushWarrior/steel_crypt
 repository: https://github.com/AKushWarrior/steel_crypt
 issue_tracker: https://github.com/AKushWarrior/steel_crypt/issues
+author: Aditya Kishore <akushwarrior@gmail.com>
 
 executables:
   decrypt: decrypt
@@ -13,13 +14,11 @@ executables:
   hashtext: hashtext
 
 environment:
-  sdk: '>=2.6.0 <3.0.0'
+  sdk: '>=2.0.0 <3.0.0'
 
 dependencies:
-  args: ^1.6.0
-  asn1lib: ^0.8.0
-  pointycastle: ^2.0.0
+  args: ^1.5.2
 
 dev_dependencies:
-  pedantic: any
-  meta: ^1.2.4
+  pedantic: ^1.7.0
+  test: ^1.6.0
